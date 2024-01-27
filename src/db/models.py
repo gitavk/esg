@@ -1,4 +1,5 @@
 import datetime as dt
+from typing import Optional
 from uuid import UUID, uuid4
 
 from sqlalchemy import DateTime, ForeignKey, Integer, Text
@@ -34,6 +35,7 @@ class Lead(Base):
     )
     esg: Mapped[ESG] = relationship("ESG", back_populates="leads")
     name: Mapped[str]
+    number_of_samples: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
     signal: Mapped[str] = mapped_column(Text)
     crosses_zero: Mapped[int] = mapped_column(Integer, default=0)
 
