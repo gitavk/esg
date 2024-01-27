@@ -21,7 +21,7 @@ build-app:
 	$(dc) build
 
 build-test:
-	$(dc) -f docker-compose.test.yml build
+	$(dc) -f compose.test.yml build
 
 build-all: build-app build-test
 
@@ -32,12 +32,12 @@ db-shell:
 	$(dc) exec apidb psql -h localhost -U $(POSTGRES_USER) -d $(POSTGRES_DB)
 
 run-tests:
-	$(dc) -f docker-compose.test.yml up --abort-on-container-exit
+	$(dc) -f compose.test.yml up --abort-on-container-exit
 
 purge-app:
 	$(dc) down -v --rmi all
 
 purge-tests:
-	$(dc) -f docker-compose.test.yml down -v --rmi all
+	$(dc) -f compose.test.yml down -v --rmi all
 
 purge-all: purge-app purge-test
