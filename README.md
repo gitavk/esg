@@ -13,7 +13,8 @@ make run-tests
 ```
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements/dev.txt 
+pip install -r requirements/dev.txt
+cp env.example .env
 ```
 ### run application
 ```
@@ -31,7 +32,6 @@ make lint-local
 ```
 make fix-local
 ```
-
 ## How to improve current solution.
 1. Add relation database (Postgres as example).
 2. Implement background task on insert to be able calculate big signals
