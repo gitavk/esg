@@ -2,9 +2,9 @@ from fastapi.testclient import TestClient
 
 
 def test_create_esg(client: TestClient) -> None:
-    response = client.post("/")
+    response = client.post("/", json={"leads": []})
     assert response.status_code == 200
-    assert response.json() == {}
+    assert response.json() == {"leads": []}
 
 
 def test_read_esg(client: TestClient) -> None:
